@@ -20,6 +20,7 @@
 #include "Camera.h"
 #include "Player.h"
 #include "FrameRate.h"
+#include "Texture.h"
 
 class Engine : public Event{
 private:

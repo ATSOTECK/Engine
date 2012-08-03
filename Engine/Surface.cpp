@@ -16,7 +16,7 @@ SDL_Surface *Surface::onLoad(std::string file) {
 		fprintf(stderr, "Could not load %s!\n", file.c_str());
 		return NULL;
 	}
-
+    
 	returnSurface = SDL_DisplayFormatAlpha(tempSurface);
 	SDL_FreeSurface(tempSurface);
 
@@ -28,7 +28,7 @@ bool Surface::onDraw(SDL_Surface *destSurface, SDL_Surface *sourceSurface, int x
 		fprintf(stderr, "Surface error!\n");
 		return false;
 	}
-
+    
 	SDL_Rect destRect;
 	destRect.x = x;
 	destRect.y = y;

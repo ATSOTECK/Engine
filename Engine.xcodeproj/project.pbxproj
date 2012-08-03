@@ -29,6 +29,7 @@
 		D48878C315C3C96C0030F893 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
 		D48878C515C3DCD80030F893 /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
 		D4B9F2C515CB73B00060A51B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F2C415CB73B00060A51B /* OpenGL.framework */; };
+		D4B9F2CB15CB81670060A51B /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F2CA15CB81670060A51B /* Texture.cpp */; };
 		D4D36D3015C39B37005C4E4C /* Area.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D36D2F15C39B37005C4E4C /* Area.cpp */; };
 		D4D36D3515C39B76005C4E4C /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D36D3415C39B76005C4E4C /* Map.cpp */; };
 		D4D36D3815C39B95005C4E4C /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D36D3715C39B95005C4E4C /* Tile.cpp */; };
@@ -85,6 +86,8 @@
 		D4719FCC15C1EAC600BF5195 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		D48878C215C3C96C0030F893 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = Library/Frameworks/SDL_image.framework; sourceTree = SDKROOT; };
 		D4B9F2C415CB73B00060A51B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D4B9F2CA15CB81670060A51B /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		D4B9F2CC15CB81750060A51B /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		D4D36D2F15C39B37005C4E4C /* Area.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Area.cpp; sourceTree = "<group>"; };
 		D4D36D3215C39B4A005C4E4C /* Area.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
 		D4D36D3315C39B63005C4E4C /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 				D4719FBC15C1D1EB00BF5195 /* OnRender.cpp */,
 				D41CE21515C92E43001716DE /* Player.cpp */,
 				D4719FBE15C1D1F500BF5195 /* Surface.cpp */,
+				D4B9F2CA15CB81670060A51B /* Texture.cpp */,
 				D4D36D3715C39B95005C4E4C /* Tile.cpp */,
 				D4719FC315C1D60600BF5195 /* Animation.h */,
 				D4D36D3215C39B4A005C4E4C /* Area.h */,
@@ -185,6 +189,7 @@
 				D4D36D3615C39B82005C4E4C /* Map.h */,
 				D41CE21715C92E52001716DE /* Player.h */,
 				D4719FC015C1D20000BF5195 /* Surface.h */,
+				D4B9F2CC15CB81750060A51B /* Texture.h */,
 				D4D36D3915C39BA0005C4E4C /* Tile.h */,
 				D421436F15C13271004B2450 /* Supporting Files */,
 			);
@@ -283,6 +288,7 @@
 				D4D36D3B15C3B1EE005C4E4C /* Camera.cpp in Sources */,
 				D41CE21215C8FE02001716DE /* FrameRate.cpp in Sources */,
 				D41CE21615C92E43001716DE /* Player.cpp in Sources */,
+				D4B9F2CB15CB81670060A51B /* Texture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

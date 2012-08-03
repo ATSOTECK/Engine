@@ -10,12 +10,14 @@
 #define Engine_Entity_h
 
 #include <vector>
+#include "SDL_opengl.h"
 #include <string.h>
 #include "Animation.h"
 #include "Surface.h"
 #include "Area.h"
 #include "Camera.h"
 #include "FrameRate.h"
+#include "Texture.h"
 
 enum entityType {
     ENTITY_TYPE_GENERIC = 0,
@@ -36,6 +38,7 @@ public:
 protected:
     Animation animationControl;
     SDL_Surface *entitySurface;
+    GLuint texture;
     
     float speedX;
     float speedY;

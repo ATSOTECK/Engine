@@ -34,6 +34,8 @@ bool Area::onLoad(std::string file) {
         return false;
     }
     
+    texture = Texture::loadTexture(tilesetFile);
+    
     fscanf(fileHandle, "%d\n", &areaSize);
     
     for (int x = 0; x < areaSize; x++) {
@@ -51,6 +53,7 @@ bool Area::onLoad(std::string file) {
             }
             
             tempMap.tilesetSurface = tilesetSurface;
+            tempMap.texture = texture;
             
             mapList.push_back(tempMap);
         }

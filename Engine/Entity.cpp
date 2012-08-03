@@ -19,6 +19,7 @@ EntityCollide::EntityCollide() {
 
 Entity::Entity() {
     entitySurface = NULL;
+    texture = NULL;
     
     x = y = 0.0f;
     
@@ -56,16 +57,22 @@ Entity::~Entity() {
 }
 
 bool Entity::onLoad(std::string file, int width, int height, int maxFrames) {
-    if ((entitySurface = Surface::onLoad(file)) == NULL) {
-        return false;
-    }
+    //if ((entitySurface = Surface::onLoad(file)) == NULL) {
+        //return false;
+    //}
     
-    Surface::setTransparent(entitySurface, 255, 0, 255);
+    //Surface::setTransparent(entitySurface, 255, 0, 255);
     
     this->height = height;
     this->width = width;
     
+    //SDL_FreeSurface(entitySurface);
+    //entitySurface = NULL;
+    
     animationControl.maxFrames = maxFrames;
+    
+    //texture = Texture::createTextureFromSDLSurface(entitySurface);
+    texture = Texture::loadTexture(file);
     
     return true;
 }
@@ -327,11 +334,13 @@ bool Entity::posValidEntity(Entity *entity, int newX, int newY) {
 }
 
 void Entity::onRender(SDL_Surface *destinationSurface) {
-    if (entitySurface == NULL || destinationSurface == NULL) {
-        return;
-    }
+    //if (entitySurface == NULL || destinationSurface == NULL) {
+        //return;
+    //}
     
-    Surface::onDraw(destinationSurface, entitySurface, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), currentFrameColumn * width, ( currentFrameRow + animationControl.getCurrentFrame()) * height, width, height);
+    //Surface::onDraw(destinationSurface, entitySurface, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), currentFrameColumn * width, ( currentFrameRow + animationControl.getCurrentFrame()) * height, width, height);
+    
+    Texture::onDraw(texture, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), 128, 512, currentFrameColumn * width, currentFrameRow + animationControl.getCurrentFrame() * height, width, height);
 }
 
 void Entity::onAnimate() {
@@ -354,4 +363,6 @@ void Entity::onCleanup() {
     }
     
     entitySurface = NULL;
+    
+    glDeleteTextures(1, &texture);
 }

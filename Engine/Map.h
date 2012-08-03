@@ -10,10 +10,12 @@
 #define Engine_Map_h
 
 #include "SDL.h"
+#include "SDL_opengl.h"
 #include <vector>
 
 #include "Tile.h"
 #include "Surface.h"
+#include "Texture.h"
 
 class Map {
 private:
@@ -21,6 +23,7 @@ private:
     
 public:
     SDL_Surface *tilesetSurface;
+    GLuint texture;
     
     Map();
     

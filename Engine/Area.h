@@ -16,6 +16,7 @@ class Area {
 private:
     int areaSize;
     SDL_Surface *tilesetSurface;
+    GLuint texture;
     
 public:
     static Area areaControl;

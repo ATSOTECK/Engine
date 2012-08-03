@@ -10,6 +10,7 @@
 
 Map::Map() {
     tilesetSurface = NULL;
+    texture = NULL;
 }
 
 bool Map::onLoad(char *file) {
@@ -60,7 +61,8 @@ void Map::onRender(SDL_Surface *display, int mapx, int mapy) {
             int tilesetX = (tileList[ID].tileID % tilesetWidth) * TILE_SIZE;
             int tilesetY = (tileList[ID].tileID / tilesetHeight) * TILE_SIZE;
             
-            Surface::onDraw(display, tilesetSurface, tx, ty, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
+            //Surface::onDraw(display, tilesetSurface, tx, ty, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
+            Texture::onDraw(texture, tx, ty, 512, 256, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
             
             ID++;
         }
