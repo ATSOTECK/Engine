@@ -31,26 +31,23 @@ GLuint Texture::createTextureFromSDLSurface(SDL_Surface *surface) {
 
 GLuint Texture::loadTexture(std::string file) {
     GLuint texture;
-    SDL_Surface *surface, *tempSurface;
+    SDL_Surface *surface;
     void *raw;
     int w, h, i, j, bpp;
     Uint8 *srcPixel, *destPixel;
     Uint32 truePixel;
     GLenum errorCode;
     
-    if ((tempSurface = IMG_Load(file.c_str())) == NULL) {
+    if ((surface = IMG_Load(file.c_str())) == NULL) {
         fprintf(stderr, "Could not load %s!\n", file.c_str());
         return 0;
     }
     
-    if (tempSurface->format->BytesPerPixel < 2) {
+    if (surface->format->BytesPerPixel < 2) {
         fprintf(stderr, "Bad image, not in true color!\n");
-        SDL_FreeSurface(tempSurface);
+        SDL_FreeSurface(surface);
         return 0;
     }
-    
-    surface = SDL_DisplayFormatAlpha(tempSurface);
-    SDL_FreeSurface(tempSurface);
     
     w = surface->w;
     h = surface->h;
