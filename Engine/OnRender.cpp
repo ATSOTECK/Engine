@@ -3,7 +3,7 @@
 void Engine::onRender() {
     glEnable(GL_TEXTURE_2D);
     //clear the screen
-    glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glViewport(0, 0, VIEW_WIDTH, VIEW_HEIGHT);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);

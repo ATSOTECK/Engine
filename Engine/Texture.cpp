@@ -31,23 +31,26 @@ GLuint Texture::createTextureFromSDLSurface(SDL_Surface *surface) {
 
 GLuint Texture::loadTexture(std::string file) {
     GLuint texture;
-    SDL_Surface *surface;
+    SDL_Surface *surface, *tempSurface;
     void *raw;
     int w, h, i, j, bpp;
     Uint8 *srcPixel, *destPixel;
     Uint32 truePixel;
     GLenum errorCode;
     
-    if ((surface = IMG_Load(file.c_str())) == NULL) {
+    if ((tempSurface = IMG_Load(file.c_str())) == NULL) {
         fprintf(stderr, "Could not load %s!\n", file.c_str());
         return 0;
     }
     
-    if (surface->format->BytesPerPixel < 2) {
+    if (tempSurface->format->BytesPerPixel < 2) {
         fprintf(stderr, "Bad image, not in true color!\n");
-        SDL_FreeSurface(surface);
+        SDL_FreeSurface(tempSurface);
         return 0;
     }
+    
+    surface = SDL_DisplayFormatAlpha(tempSurface);
+    SDL_FreeSurface(tempSurface);
     
     w = surface->w;
     h = surface->h;
@@ -170,13 +173,18 @@ bool Texture::onDraw(GLuint texture, int x, int y, int w, int h, int x2, int y2,
     tx = (float)x2 / w;
     ty = (float)y2 / h;
     
-    //glEnable(GL_TEXTURE_2D);
-    //glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+    glEnable(GL_TEXTURE_2D);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     glBindTexture(GL_TEXTURE_2D, texture);
     
-    glMatrixMode(GL_TEXTURE);
-    glLoadIdentity();
-    glMatrixMode(GL_MODELVIEW);
+    //glMatrixMode(GL_TEXTURE);
+    //glLoadIdentity();
+    //glMatrixMode(GL_MODELVIEW);
+    
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
+    
+    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     
     glBegin(GL_TRIANGLE_STRIP);
     
