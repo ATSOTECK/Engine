@@ -37,8 +37,18 @@ void Engine::onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
         case SDLK_RIGHT:
             player.moveRight = true;
             break;
-        case SDLK_SPACE:
+        case SDLK_UP:
             player.jump();
+            break;
+            
+        case SDLK_a:
+            player2.moveLeft = true;
+            break;
+        case SDLK_d:
+            player2.moveRight = true;
+            break;
+        case SDLK_w:
+            player2.jump();
             break;
 		default:
 			break;
@@ -52,6 +62,13 @@ void Engine::onKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {
             break;
         case SDLK_RIGHT:
             player.moveRight = false;
+            break;
+            
+        case SDLK_a:
+            player2.moveLeft = false;
+            break;
+        case SDLK_d:
+            player2.moveRight = false;
             break;
         default:
             break;
