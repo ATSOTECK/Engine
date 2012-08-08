@@ -343,6 +343,12 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     Texture::onDraw(texture, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), 128, 512, currentFrameColumn * width, currentFrameRow + animationControl.getCurrentFrame() * height, width, height);
 }
 
+void Entity::renderSprite(Sprite sprite, int frame, int x, int y) {
+    
+    Texture::onDraw(sprite.getTexture(), x, y, sprite.getTotalWidth(), sprite.getTotalHeight(), 
+                    sprite.getCurrentFrame() * sprite.getFrameWidth(), 0, sprite.getFrameWidth(), sprite.getFrameHeight());
+}
+
 void Entity::onAnimate() {
     if (moveLeft) {
         currentFrameColumn = 0;

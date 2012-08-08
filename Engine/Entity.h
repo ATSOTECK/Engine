@@ -18,6 +18,7 @@
 #include "Camera.h"
 #include "FrameRate.h"
 #include "Texture.h"
+#include "Sprite.h"
 
 enum entityType {
     ENTITY_TYPE_GENERIC = 0,
@@ -37,6 +38,7 @@ public:
     
 protected:
     Animation animationControl;
+    Sprite sprite;
     SDL_Surface *entitySurface;
     GLuint texture;
     
@@ -83,6 +85,7 @@ public:
     virtual bool onLoad(std::string file, int width, int height, int maxFrames);
     virtual void onLoop();
     virtual void onRender(SDL_Surface *destinationSurface);
+    virtual void renderSprite(Sprite sprite, int frame, int x, int y);
     virtual void onCleanup();
     virtual void onAnimate();
     virtual bool onCollision(Entity *entity);

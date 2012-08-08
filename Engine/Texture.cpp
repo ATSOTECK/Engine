@@ -44,7 +44,7 @@ GLuint Texture::loadTexture(std::string file) {
     }
     
     if (surface->format->BytesPerPixel < 2) {
-        fprintf(stderr, "Bad image, not in true color!\n");
+        fprintf(stderr, "%s is a bad image, not in true color!\n", file.c_str());
         SDL_FreeSurface(surface);
         return 0;
     }
@@ -106,7 +106,7 @@ GLuint Texture::loadTexture(std::string file) {
     
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
     
     errorCode = glGetError();
@@ -182,6 +182,7 @@ bool Texture::onDraw(GLuint texture, int x, int y, int w, int h, int x2, int y2,
     glEnable(GL_BLEND);
     
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    glRotatef(0.0f, 0.0f, 0.0f, 1.0f);
     
     glBegin(GL_TRIANGLE_STRIP);
     
