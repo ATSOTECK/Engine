@@ -11,6 +11,8 @@
 
 #include <SDL.h>
 #include "SDL_opengl.h"
+#include "Texture.h"
+#include "Animation.h"
 
 class Sprite {
 private:
@@ -27,6 +29,8 @@ private:
     float spriteAngle;
     
 public:
+    enum Frame {AUTO, ZERO};
+    
     Sprite();
     
     GLuint getTexture();
@@ -49,6 +53,13 @@ public:
     
     float getSpriteAngle();
     void setSpriteAngle(float angle);
+    
+    void render(const Frame frame, int column, int x, int y);
+    
+    void loadSprite(std::string file);
+    void animateSprite();
+    
+    Animation animationControl;
 };
 
 #endif

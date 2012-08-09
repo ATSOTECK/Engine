@@ -74,6 +74,8 @@ bool Entity::onLoad(std::string file, int width, int height, int maxFrames) {
     //texture = Texture::createTextureFromSDLSurface(entitySurface);
     texture = Texture::loadTexture(file);
     
+    sprite.loadSprite(file);
+    
     return true;
 }
 
@@ -340,13 +342,8 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     
     //Surface::onDraw(destinationSurface, entitySurface, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), currentFrameColumn * width, ( currentFrameRow + animationControl.getCurrentFrame()) * height, width, height);
     
-    Texture::onDraw(texture, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), 128, 512, currentFrameColumn * width, currentFrameRow + animationControl.getCurrentFrame() * height, width, height);
-}
-
-void Entity::renderSprite(Sprite sprite, int frame, int x, int y) {
-    
-    Texture::onDraw(sprite.getTexture(), x, y, sprite.getTotalWidth(), sprite.getTotalHeight(), 
-                    sprite.getCurrentFrame() * sprite.getFrameWidth(), 0, sprite.getFrameWidth(), sprite.getFrameHeight());
+    //Texture::onDraw(texture, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), 128, 512, currentFrameColumn * width, currentFrameRow + animationControl.getCurrentFrame() * height, width, height);
+    sprite.render(Sprite::AUTO, currentFrameColumn, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY());
 }
 
 void Entity::onAnimate() {
@@ -356,7 +353,7 @@ void Entity::onAnimate() {
         currentFrameColumn = 1;
     }
     
-    animationControl.onAnimate();
+    sprite.animateSprite();
 }
 
 bool Entity::onCollision(Entity *entity) {

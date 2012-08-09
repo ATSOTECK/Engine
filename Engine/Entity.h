@@ -85,7 +85,6 @@ public:
     virtual bool onLoad(std::string file, int width, int height, int maxFrames);
     virtual void onLoop();
     virtual void onRender(SDL_Surface *destinationSurface);
-    virtual void renderSprite(Sprite sprite, int frame, int x, int y);
     virtual void onCleanup();
     virtual void onAnimate();
     virtual bool onCollision(Entity *entity);

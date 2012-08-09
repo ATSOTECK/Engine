@@ -10,13 +10,10 @@
 #define Engine_Debug_h
 
 
-#include <iostream>
 #include <fstream>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
-
-using namespace std;
 
 class Debug {
 public:
@@ -24,7 +21,7 @@ public:
     enum Level {MILD, CRITICAL, FATAL} dbLevel;
     
     static FILE *debugFile;
-    static string fileName;
+    static std::string fileName;
     
     static void info(const Source source, const char *message, ...);
     static void error(const Source source, const Level level, const char *message, ...);

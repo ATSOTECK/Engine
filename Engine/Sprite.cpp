@@ -14,8 +14,8 @@ Sprite::Sprite() {
     totalWidth = 0;
     totalHeight = 0;
     
-    frameWidth = 0;
-    frameHeight = 0;
+    frameWidth = 64;
+    frameHeight = 64;
     
     currentFrame = 0;
     maxFrames = 0;
@@ -35,10 +35,13 @@ void Sprite::setTexture(GLuint newTexture) {
 }
 
 int Sprite::getCurrentFrame() {
-    return currentFrame;
+    return animationControl.getCurrentFrame();
 }
 
 void Sprite::setCurrentFrame(int frame) {
+    if (frame < 0 || frame > maxFrames) {
+        return;
+    }
     currentFrame = frame;
 }
 
@@ -82,9 +85,37 @@ void Sprite::setSpriteAngle(float angle) {
     spriteAngle = angle;
 }
 
+void Sprite::render(const Frame frame, int column, int x, int y) {
+    int _frame;
+    
+    switch (frame) {
+        case AUTO:
+            _frame = animationControl.getCurrentFrame();
+            break;
+        case ZERO:
+            _frame = 0;
+            break;
+        default:
+            _frame = (int) frame;
+            break;
+    }
+    
+    Texture::onDraw(texture, x, y, totalWidth, totalHeight, column * frameWidth, _frame * frameHeight, frameWidth, frameHeight);
+}
 
+void Sprite::loadSprite(std::string file) {
+    texture = Texture::loadTexture(file);
+    
+    //get the width and height of the loaded texture
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &totalWidth);
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &totalHeight);
+    //Debug::info(Debug::ENGINE, "%s width %i", file.c_str(), totalWidth);
+    //Debug::info(Debug::ENGINE, "%s height %i", file.c_str() ,totalHeight);
+    
+    animationControl.maxFrames = 8;
+}
 
-
-
-
+void Sprite::animateSprite() {
+    animationControl.onAnimate();
+}
 
