@@ -19,7 +19,7 @@ bool Map::onLoad(char *file) {
     FILE *fileHandle = fopen(file, "r");
     
     if (fileHandle == NULL) {
-        fprintf(stderr, "Could not load %s!", file);
+        Debug::error(Debug::ENGINE, Debug::MILD, "Could not load %s!", file);
         return false;
     }
     

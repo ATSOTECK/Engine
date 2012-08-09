@@ -39,12 +39,12 @@ GLuint Texture::loadTexture(std::string file) {
     GLenum errorCode;
     
     if ((surface = IMG_Load(file.c_str())) == NULL) {
-        fprintf(stderr, "Could not load %s!\n", file.c_str());
+        Debug::error(Debug::ENGINE, Debug::CRITICAL, "Could not load %s!", file.c_str());
         return 0;
     }
     
     if (surface->format->BytesPerPixel < 2) {
-        fprintf(stderr, "%s is a bad image, not in true color!\n", file.c_str());
+        Debug::error(Debug::ENGINE, Debug::CRITICAL, "%s is a bad image, not in true color!", file.c_str());
         SDL_FreeSurface(surface);
         return 0;
     }
@@ -81,7 +81,7 @@ GLuint Texture::loadTexture(std::string file) {
                     truePixel = *(Uint32 *)srcPixel;
                     break;
                 default:
-                    fprintf(stderr, "Image bpp of %d unuseable!\n", bpp);
+                    Debug::error(Debug::ENGINE, Debug::CRITICAL, "Image bpp of %d unuseable!", bpp);
                     SDL_UnlockSurface(surface);
                     SDL_FreeSurface(surface);
                     free(raw);
@@ -112,7 +112,7 @@ GLuint Texture::loadTexture(std::string file) {
     errorCode = glGetError();
     if (errorCode != 0) {
         if (errorCode == GL_OUT_OF_MEMORY) {
-            fprintf(stderr, "Out of memory!\n");
+            Debug::error(Debug::ENGINE, Debug::CRITICAL, "Out of memory!");
         }
         
         glDeleteTextures(1, &texture);
@@ -125,7 +125,7 @@ GLuint Texture::loadTexture(std::string file) {
     errorCode = glGetError();
     if (errorCode != 0) {
         if (errorCode == GL_OUT_OF_MEMORY) {
-            fprintf(stderr, "Out of memory!\n");
+            Debug::error(Debug::ENGINE, Debug::CRITICAL, "Out of memory!");
         }
         
         glDeleteTextures(1, &texture);

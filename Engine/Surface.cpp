@@ -13,7 +13,7 @@ SDL_Surface *Surface::onLoad(std::string file) {
 	SDL_Surface *returnSurface = NULL;
 
 	if ((tempSurface = IMG_Load(file.c_str())) == NULL) {
-		fprintf(stderr, "Could not load %s!\n", file.c_str());
+        Debug::error(Debug::ENGINE, Debug::MILD, "Could not load %s!\n", file.c_str());
 		return NULL;
 	}
     
@@ -25,7 +25,7 @@ SDL_Surface *Surface::onLoad(std::string file) {
 
 bool Surface::onDraw(SDL_Surface *destSurface, SDL_Surface *sourceSurface, int x, int y) {
 	if (destSurface == NULL || sourceSurface == NULL) {
-		fprintf(stderr, "Surface error!\n");
+		Debug::error(Debug::ENGINE, Debug::MILD, "Surface error!\n");
 		return false;
 	}
     
@@ -40,7 +40,7 @@ bool Surface::onDraw(SDL_Surface *destSurface, SDL_Surface *sourceSurface, int x
 
 bool Surface::onDraw(SDL_Surface *destSurface, SDL_Surface *sourceSurface, int x, int y, int x2, int y2, int w, int h) {
 	if (destSurface == NULL || sourceSurface == NULL) {
-		fprintf(stderr, "Surface error!\n");
+		Debug::error(Debug::ENGINE, Debug::MILD, "Surface error!\n");
 		return false;
 	}
 
@@ -61,7 +61,7 @@ bool Surface::onDraw(SDL_Surface *destSurface, SDL_Surface *sourceSurface, int x
 
 bool Surface::setTransparent(SDL_Surface *destSurface, int r, int g, int b) {
 	if (destSurface == NULL) {
-		fprintf(stderr, "Surface error!\n");
+        Debug::error(Debug::ENGINE, Debug::MILD, "Surface error!\n");
 		return false;
 	}
 

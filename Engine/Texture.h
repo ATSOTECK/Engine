@@ -14,6 +14,7 @@
 #include "SDL_image.h"
 #include <iostream>
 #include <string.h>
+#include "Debug.h"
 
 class Texture {
 public:

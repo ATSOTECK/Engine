@@ -100,6 +100,7 @@
 		D4D36D3915C39BA0005C4E4C /* Tile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		D4D36D3A15C3B1EE005C4E4C /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		D4D36D3C15C3B1FC005C4E4C /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		D4EE17C015D30C2500348E04 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +198,7 @@
 				D421436F15C13271004B2450 /* Supporting Files */,
 				D4C69CBA15D238350014E486 /* Sprite.cpp */,
 				D4C69CBD15D2387F0014E486 /* Sprite.h */,
+				D4EE17C015D30C2500348E04 /* Debug.h */,
 			);
 			path = Engine;
 			sourceTree = "<group>";

@@ -2,12 +2,9 @@
 #include <stdio.h>
 
 void Engine::onCleanup() {
-    fprintf(stderr, "Exiting...");
+    Debug::info(Debug::ENGINE, "Exiting...");
     
 	SDL_FreeSurface(display);
-	SDL_FreeSurface(testSurface);
-    SDL_FreeSurface(tileSurface);
-    //SDL_FreeSurface(yoshiSurface);
     
     for (int i = 0; i < Entity::entityList.size(); i++) {
         if (!Entity::entityList[i]) {

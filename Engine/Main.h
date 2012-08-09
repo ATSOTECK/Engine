@@ -21,6 +21,7 @@
 #include "Player.h"
 #include "FrameRate.h"
 #include "Texture.h"
+#include "Debug.h"
 
 class Engine : public Event{
 private:

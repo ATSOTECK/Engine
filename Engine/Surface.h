@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <iostream>
 #include <string.h>
+#include "Debug.h"
 
 class Surface {
 	public:

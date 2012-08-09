@@ -21,7 +21,7 @@ bool Area::onLoad(std::string file) {
     FILE *fileHandle = fopen(file.c_str(), "r");
     
     if (fileHandle == NULL) {
-        fprintf(stderr, "Could not load %s!\n", file.c_str());
+        Debug::error(Debug::ENGINE, Debug::CRITICAL, "Could not load %s!", file.c_str());
         return false;
     }
     
@@ -30,7 +30,7 @@ bool Area::onLoad(std::string file) {
     fscanf(fileHandle, "%s\n", &tilesetFile);
     
     if ((tilesetSurface = Surface::onLoad(tilesetFile)) == NULL) {
-        fprintf(stderr, "Tileset load error!\n");
+        Debug::error(Debug::ENGINE, Debug::MILD, "Tileset load error!");
         return false;
     }
     
