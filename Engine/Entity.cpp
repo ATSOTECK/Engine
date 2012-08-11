@@ -208,6 +208,10 @@ void Entity::onMove(float moveX, float moveY) {
     }
 }
 
+void Entity::onMove(Vector2f newPosition) {
+    onMove(newPosition.x, newPosition.y);
+}
+
 bool Entity::jump() {
     if (canJump == false) {
         return false;
@@ -273,6 +277,14 @@ bool Entity::collides(int otherX, int otherY, int otherW, int otherH) {
     return true;
 }
 
+bool Entity::collides(Vector2i otherPosition, Vector2i otherSize) {
+    if (collides(otherPosition.x, otherPosition.y, otherSize.width, otherSize.height) == true) {
+        return true;
+    }
+    
+    return false;
+}
+
 bool Entity::posValid(int newX, int newY) {
     bool positionValid = true;
     
@@ -306,6 +318,14 @@ bool Entity::posValid(int newX, int newY) {
     return positionValid;
 }
 
+bool Entity::posValid(Vector2i position) {
+    if (posValid(position.x, position.y) == true) {
+        return true;
+    }
+    
+    return false;
+}
+
 bool Entity::posValidTile(Tile *tile) {
     if (tile == NULL) {
         return true;
@@ -333,6 +353,14 @@ bool Entity::posValidEntity(Entity *entity, int newX, int newY) {
     }
     
     return true;
+}
+
+bool Entity::posValidEntity(Entity *entity, Vector2i position) {
+    if (posValidEntity(entity, position.x, position.y) == true) {
+        return true;
+    }
+    
+    return false;
 }
 
 void Entity::onRender(SDL_Surface *destinationSurface) {

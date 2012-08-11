@@ -1,7 +1,6 @@
 #include "Main.h"
 
 void Engine::onLoop() {
-    //yoshi.onAnimate();
     
     for (int i = 0; i < Entity::entityList.size(); i++) {
         if (!Entity::entityList[i]) {

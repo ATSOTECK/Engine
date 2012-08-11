@@ -8,6 +8,8 @@
 
 #include "Sprite.h"
 
+std::vector<Sprite> Sprite::spriteList;
+
 Sprite::Sprite() {
     texture = NULL;
     
@@ -45,12 +47,20 @@ void Sprite::setCurrentFrame(int frame) {
     currentFrame = frame;
 }
 
+Vector2i Sprite::getTotalSize() {
+    return totalSize;
+}
+
 int Sprite::getTotalWidth() {
     return totalWidth;
 }
 
 int Sprite::getTotalHeight() {
     return totalHeight;
+}
+
+Vector2i Sprite::getFrameSize() {
+    return frameSize;
 }
 
 int Sprite::getFrameWidth() {
@@ -61,12 +71,21 @@ int Sprite::getFrameHeight() {
     return frameHeight;
 }
 
+Vector2f Sprite::getSpriteScale() {
+    return spriteScale;
+}
+
 float Sprite::getSpriteXScale() {
     return spriteXScale;
 }
 
 float Sprite::getSpriteYScale() {
     return spriteYScale;
+}
+
+void Sprite::setSpriteScale(Vector2f scale) {
+    spriteScale.x = scale.x;
+    spriteScale.y = scale.y;
 }
 
 void Sprite::setSpriteXScale(float xScale) {
@@ -101,6 +120,10 @@ void Sprite::render(const Frame frame, int column, int x, int y) {
     }
     
     Texture::onDraw(texture, x, y, totalWidth, totalHeight, column * frameWidth, _frame * frameHeight, frameWidth, frameHeight);
+}
+
+void Sprite::render(const Sprite::Frame frame, int column, Vector2i position) {
+    render(frame, column, position.x, position.y);
 }
 
 void Sprite::loadSprite(std::string file) {

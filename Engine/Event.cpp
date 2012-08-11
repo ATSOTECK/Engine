@@ -156,11 +156,11 @@ void Event::onInputBlur() {
 
 }
  
-void Event::onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
+void Event::onKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
 
 }
  
-void Event::onKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {
+void Event::onKeyUp(SDLKey key, SDLMod mod, Uint16 unicode) {
 
 }
  

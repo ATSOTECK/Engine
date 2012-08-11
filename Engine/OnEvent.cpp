@@ -8,8 +8,8 @@ void Engine::onExit() {
 	running = false;
 }
 
-void Engine::onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
-	switch (sym) {
+void Engine::onKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
+	switch (key) {
 		case SDLK_ESCAPE:
 			running = false;
 			break;
@@ -55,8 +55,8 @@ void Engine::onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
 	}
 }
 
-void Engine::onKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {
-    switch (sym) {
+void Engine::onKeyUp(SDLKey key, SDLMod mod, Uint16 unicode) {
+    switch (key) {
         case SDLK_LEFT:
             player.moveLeft = false;
             break;

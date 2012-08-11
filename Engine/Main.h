@@ -44,6 +44,8 @@ public:
     
     int onExecute();
     
+    const SDL_VideoInfo *videoInfo;
+    
     //events
     void onEvent(SDL_Event *Event);
     void onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);

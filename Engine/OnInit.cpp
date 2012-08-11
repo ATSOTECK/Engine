@@ -10,7 +10,7 @@ bool Engine::onInit() {
     
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	if ((display = SDL_SetVideoMode(VIEW_WIDTH, VIEW_HEIGHT, 32, SDL_OPENGL /*| SDL_HWSURFACE | SDL_DOUBLEBUF*/)) == NULL) {
+	if ((display = SDL_SetVideoMode(VIEW_WIDTH, VIEW_HEIGHT, 32, SDL_OPENGL | SDL_GL_DOUBLEBUFFER | SDL_HWSURFACE/* | SDL_DOUBLEBUF*/)) == NULL) {
         Debug::error(Debug::ENGINE, Debug::FATAL, "SDL_SetVideoMode failed!");
 		return false;
 	}

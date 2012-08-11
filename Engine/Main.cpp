@@ -106,6 +106,8 @@ Engine::Engine() {
 	version = 0;
     
 	running = true;
+    
+    videoInfo = NULL;
 }
 
 int Engine::onExecute() {

@@ -19,13 +19,14 @@
 #include "FrameRate.h"
 #include "Texture.h"
 #include "Sprite.h"
+#include "Vector.h"
 
 enum entityType {
     ENTITY_TYPE_GENERIC = 0,
     ENTITY_TYPE_PLAYER
 };
 
-enum {
+enum entityFlags {
     ENTITY_FLAG_NONE = 0,
     ENTITY_FLAG_GRAVITY = 0x00000001, //determines whether or not the entity is affected by gravity
     ENTITY_FLAG_GHOST = 0x00000002, //collides with neither map nor entities
@@ -42,15 +43,19 @@ protected:
     SDL_Surface *entitySurface;
     GLuint texture;
     
+    Vector2f speed;
     float speedX;
     float speedY;
     
+    Vector2f acceleration;
     float accelX;
     float accelY;
     
+    Vector2i frame;
     int currentFrameColumn;
     int currentFrameRow;
     
+    Vector2i collisionPos;
     int collisionX;
     int collisionY;
     int collisionWidth;
@@ -59,6 +64,8 @@ protected:
     bool canJump;
     
 public:
+    
+    Vector2f position;
     float x;
     float y;
     
@@ -90,16 +97,20 @@ public:
     virtual bool onCollision(Entity *entity);
     
     void onMove(float moveX, float moveY);
+    void onMove(Vector2f newPosition);
     void stopMove();
     
     bool collides(int othetX, int otherY, int otherW, int otherH);
+    bool collides(Vector2i otherPosition, Vector2i otherSize);
     
     bool jump();
     
 private:
     bool posValid(int newX, int newY);
+    bool posValid(Vector2i position);
     bool posValidTile(Tile *tile);
     bool posValidEntity(Entity *entity, int newX, int newY);
+    bool posValidEntity(Entity *entity, Vector2i position);
 };
 
 class EntityCollide {

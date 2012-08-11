@@ -15,9 +15,9 @@ class Event {
  
         virtual void onInputBlur();
  
-        virtual void onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+        virtual void onKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
  
-        virtual void onKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
+        virtual void onKeyUp(SDLKey key, SDLMod mod, Uint16 unicode);
  
         virtual void onMouseFocus();
  

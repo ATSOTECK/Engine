@@ -25,5 +25,7 @@ void Engine::onRender() {
     }
 
 	//SDL_Flip(display);
+    //videoInfo = SDL_GetVideoInfo();
+    //Debug::info(Debug::ENGINE, "Video mem %i", videoInfo->video_mem);
     SDL_GL_SwapBuffers();
 }
