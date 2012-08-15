@@ -16,21 +16,25 @@
 #include "Tile.h"
 #include "Surface.h"
 #include "Texture.h"
+#include "Vector.h"
 
 class Map {
 private:
     std::vector<Tile> tileList;
     
 public:
-    SDL_Surface *tilesetSurface;
     GLuint texture;
+    
+    int tilesetWidth, tilesetHeight;
     
     Map();
     
     bool onLoad(char *file);
-    void onRender(SDL_Surface *display, int mapx, int mapy);
+    void onRender(int mapx, int mapy);
+    void onRender(Vector2i mapPos);
     
     Tile *getTile(int x, int y);
+    Tile *getTile(Vector2i pos);
 };
 
 #endif

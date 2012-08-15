@@ -22,6 +22,11 @@
 #include "FrameRate.h"
 #include "Texture.h"
 #include "Debug.h"
+//#include <ft2build.h>
+//#include FT_FREETYPE_H
+//#include "../common/shader_utils.h"
+//#include "TextRender.h"
+#include "SDL_ttf.h"
 
 class Engine : public Event{
 private:
@@ -42,7 +47,7 @@ private:
 public: 
     Engine();
     
-    int onExecute();
+    int onExecute(int argc, char *argv[]);
     
     const SDL_VideoInfo *videoInfo;
     

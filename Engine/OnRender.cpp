@@ -14,7 +14,8 @@ void Engine::onRender() {
     //SDL_FillRect(display, NULL, SDL_MapRGB(display->format, 0, 0, 0));
     
     //render the map
-    Area::areaControl.onRender(display, -Camera::cameraControl.getX(), -Camera::cameraControl.getY());
+    //Area::areaControl.onRender(-Camera::cameraControl.getX(), -Camera::cameraControl.getY());
+    Area::areaControl.onRender(Camera::cameraControl.getNegativePos());
     
     for (int i = 0; i < Entity::entityList.size(); i++) {
         if (!Entity::entityList[i]) {
@@ -23,7 +24,8 @@ void Engine::onRender() {
         
         Entity::entityList[i]->onRender(display);
     }
-
+    
+    
 	//SDL_Flip(display);
     //videoInfo = SDL_GetVideoInfo();
     //Debug::info(Debug::ENGINE, "Video mem %i", videoInfo->video_mem);

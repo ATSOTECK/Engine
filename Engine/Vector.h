@@ -11,21 +11,21 @@
 
 struct Vector2i {
     int x, y;
-    int width, height;
+    //int width, height;
     Vector2i(int X, int Y);
     Vector2i();
 };
 
 struct Vector2f {
     float x, y;
-    float width, height;
+    //float width, height;
     Vector2f(float X, float Y);
     Vector2f();
 };
 
 struct Vector2d {
     double x, y;
-    double width, height;
+    //double width, height;
     Vector2d(double X, double Y);
     Vector2d();
 };

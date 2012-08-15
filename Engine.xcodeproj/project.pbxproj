@@ -28,10 +28,13 @@
 		D4719FCB15C1E99D00BF5195 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4719FCA15C1E99D00BF5195 /* Entity.cpp */; };
 		D48878C315C3C96C0030F893 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
 		D48878C515C3DCD80030F893 /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
+		D4A82EB515DAFC2F0038F8AB /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */; };
 		D4B9F2C515CB73B00060A51B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F2C415CB73B00060A51B /* OpenGL.framework */; };
 		D4B9F2CB15CB81670060A51B /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F2CA15CB81670060A51B /* Texture.cpp */; };
 		D4C69CBB15D238350014E486 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4C69CBA15D238350014E486 /* Sprite.cpp */; };
 		D4CDB73E15D60E9600B82BEF /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4CDB73D15D60E9600B82BEF /* Vector.cpp */; };
+		D4CDB74415D72C0700B82BEF /* TextRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4CDB74315D72C0700B82BEF /* TextRender.cpp */; };
+		D4D305C815D9DC5800CF2984 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D305C715D9DC5800CF2984 /* FontManager.cpp */; };
 		D4D36D3015C39B37005C4E4C /* Area.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D36D2F15C39B37005C4E4C /* Area.cpp */; };
 		D4D36D3515C39B76005C4E4C /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D36D3415C39B76005C4E4C /* Map.cpp */; };
 		D4D36D3815C39B95005C4E4C /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D36D3715C39B95005C4E4C /* Tile.cpp */; };
@@ -87,6 +90,7 @@
 		D4719FCA15C1E99D00BF5195 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		D4719FCC15C1EAC600BF5195 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		D48878C215C3C96C0030F893 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = Library/Frameworks/SDL_image.framework; sourceTree = SDKROOT; };
+		D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = Library/Frameworks/SDL_ttf.framework; sourceTree = SDKROOT; };
 		D4B9F2C415CB73B00060A51B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D4B9F2CA15CB81670060A51B /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		D4B9F2CC15CB81750060A51B /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
@@ -94,6 +98,10 @@
 		D4C69CBD15D2387F0014E486 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		D4CDB73C15D5E59A00B82BEF /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		D4CDB73D15D60E9600B82BEF /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		D4CDB74215D72B9D00B82BEF /* TextRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextRender.h; sourceTree = "<group>"; };
+		D4CDB74315D72C0700B82BEF /* TextRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextRender.cpp; sourceTree = "<group>"; };
+		D4D305C615D9D73A00CF2984 /* FontManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		D4D305C715D9DC5800CF2984 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
 		D4D36D2F15C39B37005C4E4C /* Area.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Area.cpp; sourceTree = "<group>"; };
 		D4D36D3215C39B4A005C4E4C /* Area.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Area.h; sourceTree = "<group>"; };
 		D4D36D3315C39B63005C4E4C /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
@@ -111,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A82EB515DAFC2F0038F8AB /* SDL_ttf.framework in Frameworks */,
 				D4B9F2C515CB73B00060A51B /* OpenGL.framework in Frameworks */,
 				D48878C315C3C96C0030F893 /* SDL_image.framework in Frameworks */,
 				D421438615C13303004B2450 /* SDL.framework in Frameworks */,
@@ -124,6 +133,7 @@
 		D421435915C13270004B2450 = {
 			isa = PBXGroup;
 			children = (
+				D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */,
 				D4B9F2C415CB73B00060A51B /* OpenGL.framework */,
 				D4719FC815C1E56E00BF5195 /* icon2.icns */,
 				D4719FC415C1E18200BF5195 /* icon.png */,
@@ -204,6 +214,10 @@
 				D421436F15C13271004B2450 /* Supporting Files */,
 				D4CDB73C15D5E59A00B82BEF /* Vector.h */,
 				D4CDB73D15D60E9600B82BEF /* Vector.cpp */,
+				D4CDB74215D72B9D00B82BEF /* TextRender.h */,
+				D4CDB74315D72C0700B82BEF /* TextRender.cpp */,
+				D4D305C615D9D73A00CF2984 /* FontManager.h */,
+				D4D305C715D9DC5800CF2984 /* FontManager.cpp */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -303,6 +317,8 @@
 				D4B9F2CB15CB81670060A51B /* Texture.cpp in Sources */,
 				D4C69CBB15D238350014E486 /* Sprite.cpp in Sources */,
 				D4CDB73E15D60E9600B82BEF /* Vector.cpp in Sources */,
+				D4CDB74415D72C0700B82BEF /* TextRender.cpp in Sources */,
+				D4D305C815D9DC5800CF2984 /* FontManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +392,7 @@
 		D421438315C13271004B2450 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
@@ -387,7 +403,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/Library/Frameworks/SDL.framework/Headers,
+					"/Users/Skyler/Downloads/ftgl-2.1.3~rc5/src",
 					/Library/Frameworks/SDL_image.framework/Headers,
+					"/Users/Skyler/Downloads/freetype-2.4.10/include",
+					/Library/Frameworks/SDL_ttf.framework/Headers,
 				);
 				INFOPLIST_FILE = "Engine/Engine-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -397,7 +416,7 @@
 				REZ_SEARCH_PATHS = "$(inherited)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				USER_HEADER_SEARCH_PATHS = ../enet/include;
+				USER_HEADER_SEARCH_PATHS = "/Library/Frameworks/SDL.framework/Headers /Users/Skyler/Downloads/freetype-2.4.10/include /Library/Frameworks/SDL_image.framework/Headers";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -405,7 +424,7 @@
 		D421438415C13271004B2450 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
@@ -416,7 +435,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/Library/Frameworks/SDL.framework/Headers,
+					"/Users/Skyler/Downloads/ftgl-2.1.3~rc5/src",
 					/Library/Frameworks/SDL_image.framework/Headers,
+					"/Users/Skyler/Downloads/freetype-2.4.10/include",
+					/Library/Frameworks/SDL_ttf.framework/Headers,
 				);
 				INFOPLIST_FILE = "Engine/Engine-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -425,7 +447,7 @@
 				REZ_SEARCH_PATHS = "$(inherited)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				USER_HEADER_SEARCH_PATHS = ../enet/include;
+				USER_HEADER_SEARCH_PATHS = "/Library/Frameworks/SDL.framework/Headers /Users/Skyler/Downloads/freetype-2.4.10/include /Library/Frameworks/SDL_image.framework/Headers";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

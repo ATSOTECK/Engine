@@ -17,6 +17,7 @@
 #define VIEW_WIDTH 640
 #define VIEW_HEIGHT 480
 
-
+#define VERSION_MAJOR 0
+#define VERSION_MINOR 1
 
 #endif

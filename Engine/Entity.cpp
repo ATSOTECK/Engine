@@ -22,6 +22,8 @@ Entity::Entity() {
     texture = NULL;
     
     x = y = 0.0f;
+    position.x = x;
+    position.y = y;
     
     width = height = 0;
     
@@ -34,8 +36,12 @@ Entity::Entity() {
     flags = ENTITY_FLAG_GRAVITY;
     
     speedX = speedY = 0;
+    speed.x = speedX;
+    speed.y = speedY;
     
     accelX = accelY = 0;
+    acceleration.x = accelX;
+    acceleration.y = accelY;
     
     maxSpeedX = 10;
     maxSpeedY = 15;
@@ -72,7 +78,7 @@ bool Entity::onLoad(std::string file, int width, int height, int maxFrames) {
     animationControl.maxFrames = maxFrames;
     
     //texture = Texture::createTextureFromSDLSurface(entitySurface);
-    texture = Texture::loadTexture(file);
+    //texture = Texture::loadTexture(file);
     
     sprite.loadSprite(file);
     
@@ -86,36 +92,36 @@ void Entity::onLoop() {
     }
     
     if (moveLeft) {
-        accelX = -0.5;
+        acceleration.x = -0.5;
     } else if (moveRight) {
-        accelX = 0.5;
+        acceleration.x = 0.5;
     }
     
     if (flags & ENTITY_FLAG_GRAVITY) {
-        accelY = 0.75f;
+        acceleration.y = 0.75f;
     }
     
-    speedX += accelX * FrameRate::FPSControl.getSpeedFactor();
-    speedY += accelY * FrameRate::FPSControl.getSpeedFactor();
+    speed.x += acceleration.x * FrameRate::FPSControl.getSpeedFactor();
+    speed.y += acceleration.y * FrameRate::FPSControl.getSpeedFactor();
     
-    if (speedX > maxSpeedX) {
-        speedX = maxSpeedX;
+    if (speed.x > maxSpeedX) {
+        speed.x = maxSpeedX;
     }
     
-    if (speedX < -maxSpeedX) {
-        speedX = -maxSpeedX;
+    if (speed.x < -maxSpeedX) {
+        speed.x = -maxSpeedX;
     }
     
-    if (speedY > maxSpeedY) {
-        speedY = maxSpeedY;
+    if (speed.y > maxSpeedY) {
+        speed.y = maxSpeedY;
     }
     
-    if (speedY < -maxSpeedY) {
-        speedY = -maxSpeedY;
+    if (speed.y < -maxSpeedY) {
+        speed.y = -maxSpeedY;
     }
     
     onAnimate();
-    onMove(speedX, speedY);
+    onMove(speed);
 }
 
 void Entity::onMove(float moveX, float moveY) {
@@ -149,25 +155,25 @@ void Entity::onMove(float moveX, float moveY) {
     
     while (true) {
         if (flags & ENTITY_FLAG_GHOST) {
-            posValid((int) (x + newX), (int) (y + newY)); //don't care about collisions, but we need to send events to other entities
+            posValid((int) (position.x + newX), (int) (position.y + newY)); //don't care about collisions, but we need to send events to other entities
             
-            x += newX;
-            y += newY;
+            position.x += newX;
+            position.y += newY;
         } else {
-            if (posValid((int) (x + newX), (int) y)) {
-                x += newX;
+            if (posValid((int) (position.x + newX), (int) position.y)) {
+                position.x += newX;
             } else {
-                speedX = 0;
+                speed.x = 0;
             }
             
-            if (posValid((int) x, (int) (y + newY))) {
-                y += newY;
+            if (posValid((int) position.x, (int) (position.y + newY))) {
+                position.y += newY;
             } else {
                 if (moveY > 0) {
                     canJump = true;
                 }
                 
-                speedY = 0;
+                speed.y = 0;
             }
         }
         
@@ -217,23 +223,23 @@ bool Entity::jump() {
         return false;
     }
     
-    speedY = -maxSpeedY;
+    speed.y = -maxSpeedY;
     
     return true;
 }
 
 void Entity::stopMove() {
-    if (speedX > 0) {
-        accelX = -1;
+    if (speed.x > 0) {
+        acceleration.x = -1;
     }
     
-    if (speedX < 0) {
-        accelX = 1;
+    if (speed.x < 0) {
+        acceleration.x = 1;
     }
     
-    if (speedX < 2.0f && speedX > -2.0f) {
-        accelX = 0;
-        speedX = 0;
+    if (speed.x < 2.0f && speed.x > -2.0f) {
+        acceleration.x = 0;
+        speed.x = 0;
     }
 }
 
@@ -243,8 +249,8 @@ bool Entity::collides(int otherX, int otherY, int otherW, int otherH) {
     int top1, top2;
     int bottom1, bottom2;
     
-    int tx = (int) this->x + collisionX;
-    int ty = (int) this->y + collisionY;
+    int tx = (int) this->position.x + collisionX;
+    int ty = (int) this->position.y + collisionY;
     
     left1 = tx;
     left2 = otherX;
@@ -278,7 +284,7 @@ bool Entity::collides(int otherX, int otherY, int otherW, int otherH) {
 }
 
 bool Entity::collides(Vector2i otherPosition, Vector2i otherSize) {
-    if (collides(otherPosition.x, otherPosition.y, otherSize.width, otherSize.height) == true) {
+    if (collides(otherPosition.x, otherPosition.y, otherSize.x, otherSize.y) == true) {
         return true;
     }
     
@@ -371,7 +377,7 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     //Surface::onDraw(destinationSurface, entitySurface, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), currentFrameColumn * width, ( currentFrameRow + animationControl.getCurrentFrame()) * height, width, height);
     
     //Texture::onDraw(texture, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), 128, 512, currentFrameColumn * width, currentFrameRow + animationControl.getCurrentFrame() * height, width, height);
-    sprite.render(Sprite::AUTO, currentFrameColumn, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY());
+    sprite.render(Sprite::AUTO, currentFrameColumn, position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY());
 }
 
 void Entity::onAnimate() {

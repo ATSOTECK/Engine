@@ -29,7 +29,7 @@ void Player::onRender(SDL_Surface *displaySurface) {
 }
 
 void Player::onAnimate() {
-    if (speedX != 0) {
+    if (speed.x != 0) {
         Entity::sprite.animationControl.maxFrames = 8;
         //animationControl.maxFrames = 8;
     } else {

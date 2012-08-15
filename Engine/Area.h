@@ -15,7 +15,6 @@
 class Area {
 private:
     int areaSize;
-    SDL_Surface *tilesetSurface;
     GLuint texture;
     
 public:
@@ -26,11 +25,15 @@ public:
     Area();
     
     bool onLoad(std::string file);
-    void onRender(SDL_Surface *display, int cameraX, int cameraY);
+    void onRender(int cameraX, int cameraY);
+    void onRender(Vector2f cameraPos);
     void onCleanup();
     
     Map *getMap(int x, int y);
+    Map *getMap(Vector2i pos);
+    
     Tile *getTile(int x, int y);
+    Tile *getTile(Vector2i pos);
 };
 
 #endif

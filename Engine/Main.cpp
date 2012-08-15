@@ -110,7 +110,7 @@ Engine::Engine() {
     videoInfo = NULL;
 }
 
-int Engine::onExecute() {
+int Engine::onExecute(int argc, char *argv[]) {
     if (onInit() == false) {
 		return -1;
 	}
@@ -133,5 +133,5 @@ int Engine::onExecute() {
 int main(int argc, char *argv[]) {
     Engine engine;
     
-    return engine.onExecute();
+    return engine.onExecute(argc, argv);
 }

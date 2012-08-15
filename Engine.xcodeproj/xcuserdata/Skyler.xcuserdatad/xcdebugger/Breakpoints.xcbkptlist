@@ -42,5 +42,18 @@
          landmarkName = "Texture::onDraw(GLuint texture, int x, int y, int w, int h, int x2, int y2, int w2, int h2)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Engine/Player.cpp"
+         timestampString = "366396665.593432"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "Player::onAnimate()"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

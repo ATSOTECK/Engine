@@ -8,6 +8,18 @@ bool Engine::onInit() {
 		return false;
 	}
     
+    if (TTF_Init() < 0) {
+        Debug::error(Debug::ENGINE, Debug::FATAL, "TTF_Init failed!");
+		return false;
+    }
+    /*
+    FT_Library ft;
+    
+    if (FT_Init_FreeType(&ft)) {
+        Debug::error(Debug::ENGINE, Debug::CRITICAL, "Could not init freetype library!");
+        return false;
+    }
+    */
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	if ((display = SDL_SetVideoMode(VIEW_WIDTH, VIEW_HEIGHT, 32, SDL_OPENGL | SDL_GL_DOUBLEBUFFER | SDL_HWSURFACE/* | SDL_DOUBLEBUF*/)) == NULL) {
@@ -25,8 +37,8 @@ bool Engine::onInit() {
         return false;
     }
     
-    entity1.y = 256;
-    entity2.x = 1000;
+    entity1.position.y = 256;
+    entity2.position.x = 1000;
     
     Entity::entityList.push_back(&entity1);
     Entity::entityList.push_back(&entity2);
@@ -39,15 +51,16 @@ bool Engine::onInit() {
         return false;
     }
     
-    player.x = 3520;
+    player.position.x = 3520;
     
-    player2.x = 100;
+    player2.position.x = 100;
     
     Entity::entityList.push_back(&player);
     Entity::entityList.push_back(&player2);
     
     Camera::cameraControl.targetMode = TARGET_MODE_CENTER;
-    Camera::cameraControl.setTarget(&player.x, &player.y);
+    //Camera::cameraControl.setTarget(&player.x, &player.y);
+    Camera::cameraControl.setTarget(&player.position);
     
     if (Area::areaControl.onLoad("res/maps/1.area") == false) {
         return false;

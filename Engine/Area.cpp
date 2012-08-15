@@ -29,11 +29,6 @@ bool Area::onLoad(std::string file) {
     
     fscanf(fileHandle, "%s\n", &tilesetFile);
     
-    if ((tilesetSurface = Surface::onLoad(tilesetFile)) == NULL) {
-        Debug::error(Debug::ENGINE, Debug::MILD, "Tileset load error!");
-        return false;
-    }
-    
     texture = Texture::loadTexture(tilesetFile);
     
     fscanf(fileHandle, "%d\n", &areaSize);
@@ -52,8 +47,9 @@ bool Area::onLoad(std::string file) {
                 return false;
             }
             
-            tempMap.tilesetSurface = tilesetSurface;
             tempMap.texture = texture;
+            glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &tempMap.tilesetWidth);
+            glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &tempMap.tilesetHeight);
             
             mapList.push_back(tempMap);
         }
@@ -64,7 +60,7 @@ bool Area::onLoad(std::string file) {
     return true;
 }
 
-void Area::onRender(SDL_Surface *display, int camreaX, int cameraY) {
+void Area::onRender(int camreaX, int cameraY) {
     int mapWidth = MAP_WIDTH * TILE_SIZE;
     int mapHeight = MAP_HEIGHT * TILE_SIZE;
     
@@ -81,8 +77,12 @@ void Area::onRender(SDL_Surface *display, int camreaX, int cameraY) {
         int x = ((ID % areaSize) * mapWidth) + camreaX;
         int y = ((ID / areaSize) * mapHeight) + cameraY;
         
-        mapList[ID].onRender(display, x, y);
+        mapList[ID].onRender(x, y);
     }
+}
+
+void Area::onRender(Vector2f cameraPos) {
+    onRender(cameraPos.x, cameraPos.y);
 }
 
 Map *Area::getMap(int x, int y) {
@@ -99,6 +99,10 @@ Map *Area::getMap(int x, int y) {
     return &mapList[ID];
 }
 
+Map *Area::getMap(Vector2i pos) {
+    return getMap(pos.x, pos.y);
+}
+
 Tile *Area::getTile(int x, int y) {
     int mapWidth = MAP_WIDTH * TILE_SIZE;
     int mapHeight = MAP_WIDTH * TILE_SIZE;
@@ -111,10 +115,12 @@ Tile *Area::getTile(int x, int y) {
     return map->getTile(x, y);
 }
 
+Tile *Area::getTile(Vector2i pos) {
+    return getTile(pos.x, pos.y);
+}
+
 void Area::onCleanup() {
-    if (tilesetSurface) {
-        SDL_FreeSurface(tilesetSurface);
-    }
+    glDeleteTextures(1, &texture);
     
     mapList.clear();
 }

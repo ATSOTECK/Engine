@@ -13,47 +13,89 @@ Camera Camera::cameraControl;
 
 Camera::Camera() {
     x = y = 0;
+    pos.x = 0;
+    pos.y = 0;
     
     targetX = targetY = NULL;
+    targetPos = NULL;
     
     targetMode = TARGET_MODE_NORMAL;
 }
 
 void Camera::onMove(int moveX, int moveY) {
-    x += moveX;
-    y += moveY;
+    pos.x += moveX;
+    pos.y += moveY;
+}
+
+void Camera::onMove(Vector2i newPos) {
+    onMove(newPos.x, newPos.y);
+}
+
+Vector2f Camera::getPosition() {
+    if (targetPos != NULL) {
+        if (targetMode == TARGET_MODE_CENTER) {
+            Vector2f temp;
+            temp.x = targetPos->x - (VIEW_WIDTH / 2);
+            temp.y = targetPos->y - (VIEW_HEIGHT / 2);
+            return temp;
+        }
+        
+        return *targetPos;
+    }
+    
+    Vector2f temp;
+    temp.x = pos.x;
+    temp.y = pos.y;
+    return temp;
+}
+
+Vector2f Camera::getNegativePos() {
+    Vector2f temp = getPosition();
+    
+    temp.x *= -1;
+    temp.y *= -1;
+    
+    return temp;
 }
 
 int Camera::getX() {
-    if (targetX != NULL) {
+    if (targetPos != NULL) {
         if (targetMode == TARGET_MODE_CENTER) {
-            return *targetX - (VIEW_WIDTH / 2);
+            return targetPos->x - (VIEW_WIDTH / 2);
         }
         
-        return *targetX;
+        return targetPos->x;
     }
-    std::cout << "x: " << x << std::endl;
-    return x;
+    
+    return pos.x;
 }
 
 int Camera::getY() {
-    if (targetY != NULL) {
+    if (targetPos != NULL) {
         if (targetMode == TARGET_MODE_CENTER) {
-            return *targetY - (VIEW_HEIGHT / 2);
+            return targetPos->y - (VIEW_HEIGHT / 2);
         }
         
-        return *targetY;
+        return targetPos->y;
     }
-    std::cout << "y: " << y << std::endl;
-    return y;
+    
+    return pos.y;
 }
 
 void Camera::setPos(int x, int y) {
-    this->x = x;
-    this->y = y;
+    this->pos.x = x;
+    this->pos.y = y;
+}
+
+void Camera::setPos(Vector2i pos) {
+    this->pos = pos;
 }
 
 void Camera::setTarget(float *x, float*y) {
-    targetX = x;
-    targetY = y;
+    targetPos->x = *x;
+    targetPos->y = *y;
+}
+
+void Camera::setTarget(Vector2f *targetPos) {
+    this->targetPos = targetPos;
 }

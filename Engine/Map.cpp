@@ -9,8 +9,8 @@
 #include "Map.h"
 
 Map::Map() {
-    tilesetSurface = NULL;
     texture = NULL;
+    tilesetWidth = tilesetHeight = 0;
 }
 
 bool Map::onLoad(char *file) {
@@ -38,14 +38,7 @@ bool Map::onLoad(char *file) {
     return true;
 }
 
-void Map::onRender(SDL_Surface *display, int mapx, int mapy) {
-    if (tilesetSurface == NULL) {
-        return;
-    }
-    
-    int tilesetWidth = tilesetSurface->w / TILE_SIZE;
-    int tilesetHeight = tilesetSurface->h / TILE_SIZE;
-    
+void Map::onRender(int mapx, int mapy) {
     int ID = 0;
     
     for (int y = 0; y < MAP_HEIGHT; y++) {
@@ -58,15 +51,21 @@ void Map::onRender(SDL_Surface *display, int mapx, int mapy) {
             int tx = mapx + (x * TILE_SIZE);
             int ty = mapy + (y * TILE_SIZE);
             
-            int tilesetX = (tileList[ID].tileID % tilesetWidth) * TILE_SIZE;
-            int tilesetY = (tileList[ID].tileID / tilesetHeight) * TILE_SIZE;
+            int tempWidth = tilesetWidth / TILE_SIZE;
+            int tempHeight = tilesetHeight / TILE_SIZE;
             
-            //Surface::onDraw(display, tilesetSurface, tx, ty, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
-            Texture::onDraw(texture, tx, ty, 512, 256, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
+            int tilesetX = (tileList[ID].tileID % tempWidth) * TILE_SIZE;
+            int tilesetY = (tileList[ID].tileID / tempHeight) * TILE_SIZE;
+            
+            Texture::onDraw(texture, tx, ty, tilesetWidth, tilesetHeight, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
             
             ID++;
         }
     }
+}
+
+void Map::onRender(Vector2i mapPos) {
+    onRender(mapPos.x, mapPos.y);
 }
 
 Tile *Map::getTile(int x, int y) {
@@ -80,4 +79,8 @@ Tile *Map::getTile(int x, int y) {
     }
     
     return &tileList[ID];
+}
+
+Tile *Map::getTile(Vector2i pos) {
+    return getTile(pos.x, pos.y);
 }
