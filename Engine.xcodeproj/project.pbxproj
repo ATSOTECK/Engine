@@ -28,7 +28,10 @@
 		D4719FCB15C1E99D00BF5195 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4719FCA15C1E99D00BF5195 /* Entity.cpp */; };
 		D48878C315C3C96C0030F893 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
 		D48878C515C3DCD80030F893 /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
+		D49D251815E0559300161F6B /* RealFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D49D251715E0559300161F6B /* RealFunctions.cpp */; };
 		D4A82EB515DAFC2F0038F8AB /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */; };
+		D4B8C02B15DB6AA200BCD37C /* FreeType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B8C02A15DB6AA200BCD37C /* FreeType.framework */; };
+		D4B8C02E15DB831000BCD37C /* ShaderUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */; };
 		D4B9F2C515CB73B00060A51B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F2C415CB73B00060A51B /* OpenGL.framework */; };
 		D4B9F2CB15CB81670060A51B /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F2CA15CB81670060A51B /* Texture.cpp */; };
 		D4C69CBB15D238350014E486 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4C69CBA15D238350014E486 /* Sprite.cpp */; };
@@ -90,7 +93,13 @@
 		D4719FCA15C1E99D00BF5195 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		D4719FCC15C1EAC600BF5195 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		D48878C215C3C96C0030F893 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = Library/Frameworks/SDL_image.framework; sourceTree = SDKROOT; };
+		D49D251415E0447600161F6B /* RealFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealFunctions.h; sourceTree = "<group>"; };
+		D49D251615E0491D00161F6B /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
+		D49D251715E0559300161F6B /* RealFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RealFunctions.cpp; sourceTree = "<group>"; };
 		D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = Library/Frameworks/SDL_ttf.framework; sourceTree = SDKROOT; };
+		D4B8C02A15DB6AA200BCD37C /* FreeType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeType.framework; path = Library/Frameworks/FreeType.framework; sourceTree = SDKROOT; };
+		D4B8C02C15DB82BD00BCD37C /* ShaderUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderUtils.h; sourceTree = "<group>"; };
+		D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderUtils.cpp; sourceTree = "<group>"; };
 		D4B9F2C415CB73B00060A51B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D4B9F2CA15CB81670060A51B /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		D4B9F2CC15CB81750060A51B /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
@@ -119,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B8C02B15DB6AA200BCD37C /* FreeType.framework in Frameworks */,
 				D4A82EB515DAFC2F0038F8AB /* SDL_ttf.framework in Frameworks */,
 				D4B9F2C515CB73B00060A51B /* OpenGL.framework in Frameworks */,
 				D48878C315C3C96C0030F893 /* SDL_image.framework in Frameworks */,
@@ -133,6 +143,7 @@
 		D421435915C13270004B2450 = {
 			isa = PBXGroup;
 			children = (
+				D4B8C02A15DB6AA200BCD37C /* FreeType.framework */,
 				D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */,
 				D4B9F2C415CB73B00060A51B /* OpenGL.framework */,
 				D4719FC815C1E56E00BF5195 /* icon2.icns */,
@@ -218,6 +229,11 @@
 				D4CDB74315D72C0700B82BEF /* TextRender.cpp */,
 				D4D305C615D9D73A00CF2984 /* FontManager.h */,
 				D4D305C715D9DC5800CF2984 /* FontManager.cpp */,
+				D4B8C02C15DB82BD00BCD37C /* ShaderUtils.h */,
+				D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */,
+				D49D251415E0447600161F6B /* RealFunctions.h */,
+				D49D251615E0491D00161F6B /* Value.h */,
+				D49D251715E0559300161F6B /* RealFunctions.cpp */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -319,6 +335,8 @@
 				D4CDB73E15D60E9600B82BEF /* Vector.cpp in Sources */,
 				D4CDB74415D72C0700B82BEF /* TextRender.cpp in Sources */,
 				D4D305C815D9DC5800CF2984 /* FontManager.cpp in Sources */,
+				D4B8C02E15DB831000BCD37C /* ShaderUtils.cpp in Sources */,
+				D49D251815E0559300161F6B /* RealFunctions.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +423,7 @@
 					/Library/Frameworks/SDL.framework/Headers,
 					"/Users/Skyler/Downloads/ftgl-2.1.3~rc5/src",
 					/Library/Frameworks/SDL_image.framework/Headers,
-					"/Users/Skyler/Downloads/freetype-2.4.10/include",
+					/Library/Frameworks/FreeType.framework/Headers,
 					/Library/Frameworks/SDL_ttf.framework/Headers,
 				);
 				INFOPLIST_FILE = "Engine/Engine-Info.plist";
@@ -437,7 +455,7 @@
 					/Library/Frameworks/SDL.framework/Headers,
 					"/Users/Skyler/Downloads/ftgl-2.1.3~rc5/src",
 					/Library/Frameworks/SDL_image.framework/Headers,
-					"/Users/Skyler/Downloads/freetype-2.4.10/include",
+					/Library/Frameworks/FreeType.framework/Headers,
 					/Library/Frameworks/SDL_ttf.framework/Headers,
 				);
 				INFOPLIST_FILE = "Engine/Engine-Info.plist";

@@ -8,7 +8,8 @@
 
 #include "FontManager.h"
 
-//FTTextureFont* myFont = FontManager::Instance().getFont("arial.ttf", 72);
+//FTFont *myFont = FontManager::Instance().getFont("arial.ttf", 72);
+
 
 typedef map<string, FTFont*> fontList;
 typedef fontList::const_iterator fontIter;
@@ -39,13 +40,13 @@ FTFont *FontManager::getFont(const char *fileName, int size) {
         return result->second;
     }
     
-    //FTFont *font = new FTTextureFont(fileName);
+    FTFont *font = new FTTextureFont(fileName);
     
     
-    string fullName = path + string(fileName);
+    //string fullName = path + string(fileName);
     
-    if (!font->Attach(fullName.c_str())) {
-        Debug::error(Debug::ENGINE, Debug::CRITICAL, "Font %s failed to open!", fullName.c_str());
+    if (!font->Attach(fileName)) {
+        Debug::error(Debug::ENGINE, Debug::CRITICAL, "Font %s failed to open!", fileName);
         delete font;
         return NULL;
     }
@@ -59,5 +60,5 @@ FTFont *FontManager::getFont(const char *fileName, int size) {
     fonts[fontKey] = font;
     
     return font;
-     */
+     //*/
 }

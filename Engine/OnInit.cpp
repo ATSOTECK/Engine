@@ -13,8 +13,6 @@ bool Engine::onInit() {
 		return false;
     }
     /*
-    FT_Library ft;
-    
     if (FT_Init_FreeType(&ft)) {
         Debug::error(Debug::ENGINE, Debug::CRITICAL, "Could not init freetype library!");
         return false;
@@ -67,8 +65,10 @@ bool Engine::onInit() {
     }
     
     SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3);
-
-	//fprintf(stderr, "Initializations successful!\n");
+    
+    //set the seed for random numbers
+    setSeed();
+    
     Debug::info(Debug::ENGINE, "Initializations successful!");
 	return true;
 }

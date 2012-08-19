@@ -138,6 +138,14 @@ GLuint Texture::loadTexture(std::string file) {
 }
 
 bool Texture::onDraw(GLuint texture, int x, int y, int w, int h) {
+    
+    glEnable(GL_TEXTURE_2D);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
+    
     glBegin(GL_QUADS);
         //top left
         glTexCoord2i(0, 0);

@@ -20,6 +20,7 @@
 #include "Texture.h"
 #include "Sprite.h"
 #include "Vector.h"
+#include "RealFunctions.h"
 
 enum entityType {
     ENTITY_TYPE_GENERIC = 0,

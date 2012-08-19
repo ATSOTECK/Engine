@@ -11,13 +11,25 @@
 
 #include <SDL.h>
 #include "SDL_opengl.h"
+#include <SDL_ttf.h>
 #include <FTGL/ftgl.h>
-#include "Debug.h"
+#include "Main.h"
 
-struct TextRender {
+class TextRender {
+public:
+    TextRender();
+    ~TextRender();
+    
+    bool initText();
     void renderText(const char *text, float x, float y, float sx, float sy);
     static void createFont(FTGLPixmapFont *font);
-    void renderText(FTGLPixmapFont font, const char *text);
+    
+    FT_Face face;
+    
+    GLuint program;
+    GLuint attributeCoord;
+    GLuint uniformTex;
+    GLuint uniformColor;
 };
 
 #endif

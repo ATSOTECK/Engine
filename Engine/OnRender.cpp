@@ -23,8 +23,7 @@ void Engine::onRender() {
         }
         
         Entity::entityList[i]->onRender(display);
-    }
-    
+    }    
     
 	//SDL_Flip(display);
     //videoInfo = SDL_GetVideoInfo();

@@ -22,11 +22,11 @@
 #include "FrameRate.h"
 #include "Texture.h"
 #include "Debug.h"
-//#include <ft2build.h>
-//#include FT_FREETYPE_H
-//#include "../common/shader_utils.h"
+#include <ft2build.h>
+#include FT_FREETYPE_H
+//#include "shaderUtils.h"
 //#include "TextRender.h"
-#include "SDL_ttf.h"
+#include <SDL_ttf.h>
 
 class Engine : public Event{
 private:
@@ -61,6 +61,10 @@ public:
     void onLoop();
     void onRender();
     void onCleanup();
+    
+    static FT_Library ft;
+    
+    static unsigned int seed;
 };
 
 #endif
