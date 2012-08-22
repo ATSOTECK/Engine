@@ -8,12 +8,37 @@
 
 #include "RealFunctions.h"
 
+unsigned int seed = 0;
+
 Value lengthDirX(Value length, Value dir) {
     return  cos((dir.real() * M_PI) / 180) *length.real();
 }
 
 Value lengthDirY(Value length, Value dir) {
     return sin((dir.real() * M_PI) / 180) * length.real();
+}
+
+Value pointDistance(Value x, Value y, Value x1, Value y1) {
+    float deltax = (x.real() - x1.real());
+    float deltay = (y.real() - y1.real());
+    
+    return sqrtf(powf(deltax, 2) + powf(deltay, 2));
+}
+
+Value pointDistance(Vector2f pos, Value x1, Value y1) {
+    return pointDistance(pos.x, pos.y, x1, y1);
+}
+
+Value pointDistance(Value x, Value y, Vector2f pos1) {
+    return pointDistance(x, y, pos1.x, pos1.y);
+}
+
+Value pointDistance(Vector2f pos, Vector2f pos1) {
+    return pointDistance(pos.x, pos.y, pos1.x, pos1.y);
+}
+
+Value pointDistance(Vector4f pos) {
+    return pointDistance(pos.x, pos.y, pos.x1, pos.y1);
 }
 
 Value _sin(Value arg) {
@@ -247,18 +272,18 @@ Value irandomRange(Value arg, Value arg1) {
 }
 
 void randomSetSeet(Value arg) {
-    Engine::seed = arg.real();
+    seed = (int) arg.real();
     srand((int) arg.real());
 }
 
 void randomSetRandomSeed(void) {
     int r = rand() % RAND_MAX;
-    Engine::seed = r;
+    seed = r;
     srand(r);
 }
 
 Value randomGetSeed() {
-    return (int) Engine::seed;
+    return (int) seed;
 }
 
 /*Value choose(Value arg1, ...) {
@@ -270,6 +295,6 @@ va_end(args);
 //engine function(s)
 
 void setSeed(void) {
-    Engine::seed = time(NULL);
+    seed = time(NULL);
     srand(time(NULL));
 }

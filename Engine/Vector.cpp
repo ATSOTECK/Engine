@@ -67,3 +67,72 @@ Vector3d newVector3d(double x, double y, double z) {
     temp.y = y;
     return temp;
 }
+
+Vector4i::Vector4i(int X, int Y, int X1, int Y1) {
+    x = X; y = Y; x1 = X1; y1 = Y1; 
+    xy.x = X; xy.y = Y; x2y2.x = x; x2y2.y = Y1;
+}
+
+Vector4i::Vector4i(Vector2i XY, Vector2i X2Y2) {
+    x = XY.x; y = XY.y; x1 = X2Y2.x; y1 = X2Y2.y;
+    xy = XY; x2y2 = X2Y2;
+}
+
+Vector4i::Vector4i(Vector2i XY, int X1, int Y1) {
+    x = XY.x; y = XY.y; x1 = X1; y1 = Y1;
+    xy = XY; x2y2.x = X1; x2y2.y = Y1;
+}
+
+Vector4i::Vector4i(int X, int Y, Vector2i X2Y2) {
+    x = X; y = X; x1 = X2Y2.x; y1 = X2Y2.y;
+    xy.x = X; xy.y = y; x2y2 = X2Y2;
+}
+
+Vector4i::Vector4i() {Vector4i(0.0f, 0.0f, 0.0f, 0.0f);}
+
+Vector4f::Vector4f(float X, float Y, float X1, float Y1) {
+    x = X; y = Y; x1 = X1; y1 = Y1; 
+    xy.x = X; xy.y = Y; x2y2.x = x; x2y2.y = Y1;
+}
+
+Vector4f::Vector4f(Vector2f XY, Vector2f X2Y2) {
+    x = XY.x; y = XY.y; x1 = X2Y2.x; y1 = X2Y2.y;
+    xy = XY; x2y2 = X2Y2;
+}
+
+Vector4f::Vector4f(Vector2f XY, float X1, float Y1) {
+    x = XY.x; y = XY.y; x1 = X1; y1 = Y1;
+    xy = XY; x2y2.x = X1; x2y2.y = Y1;
+}
+
+Vector4f::Vector4f(float X, float Y, Vector2f X2Y2) {
+    x = X; y = X; x1 = X2Y2.x; y1 = X2Y2.y;
+    xy.x = X; xy.y = y; x2y2 = X2Y2;
+}
+
+Vector4f::Vector4f() {Vector4f(0.0f, 0.0f, 0.0f, 0.0f);}
+
+Vector4d::Vector4d(double X, double Y, double X1, double Y1) {
+    x = X; y = Y; x1 = X1; y1 = Y1; 
+    xy.x = X; xy.y = Y; x2y2.x = x; x2y2.y = Y1;
+}
+
+Vector4d::Vector4d(Vector2d XY, Vector2d X2Y2) {
+    x = XY.x; y = XY.y; x1 = X2Y2.x; y1 = X2Y2.y;
+    xy = XY; x2y2 = X2Y2;
+}
+
+Vector4d::Vector4d(Vector2d XY, double X1, double Y1) {
+    x = XY.x; y = XY.y; x1 = X1; y1 = Y1;
+    xy = XY; x2y2.x = X1; x2y2.y = Y1;
+}
+
+Vector4d::Vector4d(double X, double Y, Vector2d X2Y2) {
+    x = X; y = X; x1 = X2Y2.x; y1 = X2Y2.y;
+    xy.x = X; xy.y = y; x2y2 = X2Y2;
+}
+
+Vector4d::Vector4d() {Vector4d(0.0f, 0.0f, 0.0f, 0.0f);}
+
+
+

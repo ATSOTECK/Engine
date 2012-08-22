@@ -378,6 +378,10 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     
     //Texture::onDraw(texture, x - Camera::cameraControl.getX(), y - Camera::cameraControl.getY(), 128, 512, currentFrameColumn * width, currentFrameRow + animationControl.getCurrentFrame() * height, width, height);
     sprite.render(Sprite::AUTO, currentFrameColumn, position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY());
+    
+    //sprite.render(Sprite::AUTO, currentFrameColumn, position.x, position.y - Camera::cameraControl.getY());
+    
+    Shape::shape.drawLine((position.x) - 32, (position.y - Camera::cameraControl.getY()) - 32, (position.x - Camera::cameraControl.getX()) + 32, (position.y - Camera::cameraControl.getY()) + 32);
 }
 
 void Entity::onAnimate() {

@@ -63,8 +63,6 @@ public:
     void onCleanup();
     
     static FT_Library ft;
-    
-    static unsigned int seed;
 };
 
 #endif

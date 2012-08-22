@@ -1,5 +1,6 @@
 #include <string.h>
 #include "Main.h"
+#include "RealFunctions.h"
 
 bool Engine::onInit() {
     

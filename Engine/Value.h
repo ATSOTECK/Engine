@@ -9,6 +9,7 @@
 #ifndef Engine_Value_h
 #define Engine_Value_h
 
+#include <iostream>
 #include <string.h>
 #include "Vector.h"
 

@@ -16,7 +16,6 @@
 #include "Entity.h"
 #include "Value.h"
 #include <stdarg.h>
-#include "Main.h"
 
 Value lengthDirX(Value length, Value dir);
 Value lengthDirY(Value length, Value dir);
@@ -33,9 +32,9 @@ Value pointDirection(Value x, Value y, Vector2f pos1);
 Value pointDirection(Vector2f pos, Vector2f pos1);
 Value pointDirection(Vector4f positions);
 
-//Value distanceToObj(Entity *thisEntity, Entity *other);
-//Value distanceToPoint(Entity *thisEntity, Value x, Value y);
-//Value distanceToPoint(Entity *thisEntity, Vector2f pos;
+Value distanceToObj(Entity *thisEntity, Entity *other);
+Value distanceToPoint(Entity *thisEntity, Value x, Value y);
+Value distanceToPoint(Entity *thisEntity, Vector2f pos);
 
 Value choose(Value arg1, ...);
 

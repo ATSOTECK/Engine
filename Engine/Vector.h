@@ -86,7 +86,7 @@ struct Vector4d {
     Vector2d xy, x2y2;
     Vector4d(double X, double Y, double X1, double Y1);
     Vector4d(Vector2d XY, Vector2d X2Y2);
-    Vector4d(double X, int Y, Vector2d X2Y2);
+    Vector4d(double X, double Y, Vector2d X2Y2);
     Vector4d(Vector2d XY, double X1, double Y1);
     Vector4d();
 };

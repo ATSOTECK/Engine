@@ -108,8 +108,6 @@ Engine::Engine() {
 	running = true;
     
     videoInfo = NULL;
-    
-    seed = 0;
 }
 
 int Engine::onExecute(int argc, char *argv[]) {

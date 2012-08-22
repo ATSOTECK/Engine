@@ -30,6 +30,8 @@
 		D48878C515C3DCD80030F893 /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D48878C215C3C96C0030F893 /* SDL_image.framework */; };
 		D49D251815E0559300161F6B /* RealFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D49D251715E0559300161F6B /* RealFunctions.cpp */; };
 		D4A82EB515DAFC2F0038F8AB /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */; };
+		D4AA6ACF15E278BD004AD766 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AA6ACE15E278BC004AD766 /* Shape.cpp */; };
+		D4AE791015E0A4E5006FCCE0 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4AE790F15E0A4E5006FCCE0 /* Color.cpp */; };
 		D4B8C02B15DB6AA200BCD37C /* FreeType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B8C02A15DB6AA200BCD37C /* FreeType.framework */; };
 		D4B8C02E15DB831000BCD37C /* ShaderUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */; };
 		D4B9F2C515CB73B00060A51B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F2C415CB73B00060A51B /* OpenGL.framework */; };
@@ -97,6 +99,11 @@
 		D49D251615E0491D00161F6B /* Value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
 		D49D251715E0559300161F6B /* RealFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RealFunctions.cpp; sourceTree = "<group>"; };
 		D4A82EB415DAFC2F0038F8AB /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = Library/Frameworks/SDL_ttf.framework; sourceTree = SDKROOT; };
+		D4AA6ACE15E278BC004AD766 /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
+		D4AE790C15E0A3A5006FCCE0 /* Shape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		D4AE790E15E0A454006FCCE0 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		D4AE790F15E0A4E5006FCCE0 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
+		D4AE791115E0B31E006FCCE0 /* Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
 		D4B8C02A15DB6AA200BCD37C /* FreeType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeType.framework; path = Library/Frameworks/FreeType.framework; sourceTree = SDKROOT; };
 		D4B8C02C15DB82BD00BCD37C /* ShaderUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderUtils.h; sourceTree = "<group>"; };
 		D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderUtils.cpp; sourceTree = "<group>"; };
@@ -192,8 +199,10 @@
 				D4719FC115C1D5FC00BF5195 /* Animation.cpp */,
 				D4D36D2F15C39B37005C4E4C /* Area.cpp */,
 				D4D36D3A15C3B1EE005C4E4C /* Camera.cpp */,
+				D4AE790F15E0A4E5006FCCE0 /* Color.cpp */,
 				D4719FCA15C1E99D00BF5195 /* Entity.cpp */,
 				D4719FB115C1D18100BF5195 /* Event.cpp */,
+				D4D305C715D9DC5800CF2984 /* FontManager.cpp */,
 				D41CE21115C8FE02001716DE /* FrameRate.cpp */,
 				D421438C15C13468004B2450 /* Main.cpp */,
 				D4D36D3415C39B76005C4E4C /* Map.cpp */,
@@ -203,37 +212,40 @@
 				D4719FBA15C1D1E300BF5195 /* OnLoop.cpp */,
 				D4719FBC15C1D1EB00BF5195 /* OnRender.cpp */,
 				D41CE21515C92E43001716DE /* Player.cpp */,
+				D49D251715E0559300161F6B /* RealFunctions.cpp */,
+				D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */,
 				D4C69CBA15D238350014E486 /* Sprite.cpp */,
 				D4719FBE15C1D1F500BF5195 /* Surface.cpp */,
+				D4CDB74315D72C0700B82BEF /* TextRender.cpp */,
 				D4B9F2CA15CB81670060A51B /* Texture.cpp */,
 				D4D36D3715C39B95005C4E4C /* Tile.cpp */,
+				D4CDB73D15D60E9600B82BEF /* Vector.cpp */,
 				D4719FC315C1D60600BF5195 /* Animation.h */,
 				D4D36D3215C39B4A005C4E4C /* Area.h */,
 				D4D36D3C15C3B1FC005C4E4C /* Camera.h */,
+				D4AE790E15E0A454006FCCE0 /* Color.h */,
 				D4EE17C015D30C2500348E04 /* Debug.h */,
 				D4D36D3315C39B63005C4E4C /* Define.h */,
 				D4719FCC15C1EAC600BF5195 /* Entity.h */,
 				D4719FB315C1D19300BF5195 /* Event.h */,
+				D4D305C615D9D73A00CF2984 /* FontManager.h */,
 				D41CE21415C8FE16001716DE /* FrameRate.h */,
 				D4719FAF15C1C51300BF5195 /* Main.h */,
 				D4D36D3615C39B82005C4E4C /* Map.h */,
 				D41CE21715C92E52001716DE /* Player.h */,
+				D49D251415E0447600161F6B /* RealFunctions.h */,
+				D4AE791115E0B31E006FCCE0 /* Rect.h */,
+				D4B8C02C15DB82BD00BCD37C /* ShaderUtils.h */,
+				D4AE790C15E0A3A5006FCCE0 /* Shape.h */,
 				D4C69CBD15D2387F0014E486 /* Sprite.h */,
 				D4719FC015C1D20000BF5195 /* Surface.h */,
+				D4CDB74215D72B9D00B82BEF /* TextRender.h */,
 				D4B9F2CC15CB81750060A51B /* Texture.h */,
 				D4D36D3915C39BA0005C4E4C /* Tile.h */,
-				D421436F15C13271004B2450 /* Supporting Files */,
-				D4CDB73C15D5E59A00B82BEF /* Vector.h */,
-				D4CDB73D15D60E9600B82BEF /* Vector.cpp */,
-				D4CDB74215D72B9D00B82BEF /* TextRender.h */,
-				D4CDB74315D72C0700B82BEF /* TextRender.cpp */,
-				D4D305C615D9D73A00CF2984 /* FontManager.h */,
-				D4D305C715D9DC5800CF2984 /* FontManager.cpp */,
-				D4B8C02C15DB82BD00BCD37C /* ShaderUtils.h */,
-				D4B8C02D15DB831000BCD37C /* ShaderUtils.cpp */,
-				D49D251415E0447600161F6B /* RealFunctions.h */,
 				D49D251615E0491D00161F6B /* Value.h */,
-				D49D251715E0559300161F6B /* RealFunctions.cpp */,
+				D4CDB73C15D5E59A00B82BEF /* Vector.h */,
+				D421436F15C13271004B2450 /* Supporting Files */,
+				D4AA6ACE15E278BC004AD766 /* Shape.cpp */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -337,6 +349,8 @@
 				D4D305C815D9DC5800CF2984 /* FontManager.cpp in Sources */,
 				D4B8C02E15DB831000BCD37C /* ShaderUtils.cpp in Sources */,
 				D49D251815E0559300161F6B /* RealFunctions.cpp in Sources */,
+				D4AE791015E0A4E5006FCCE0 /* Color.cpp in Sources */,
+				D4AA6ACF15E278BD004AD766 /* Shape.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
