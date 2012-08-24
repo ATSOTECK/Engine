@@ -381,7 +381,12 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     
     //sprite.render(Sprite::AUTO, currentFrameColumn, position.x, position.y - Camera::cameraControl.getY());
     
-    Shape::shape.drawLine((position.x) - 32, (position.y - Camera::cameraControl.getY()) - 32, (position.x - Camera::cameraControl.getX()) + 32, (position.y - Camera::cameraControl.getY()) + 32);
+    //Shape::shape.drawLine((position.x) - 32, (position.y - Camera::cameraControl.getY()) - 32, (position.x - Camera::cameraControl.getX()) + 32, (position.y - Camera::cameraControl.getY()) + 32);
+    //Shape::shape.drawTriangle(newVector2f(position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY()), newVector2f((position.x - Camera::cameraControl.getX()) - 32, (position.y - Camera::cameraControl.getY()) - 32), newVector2f((position.x - Camera::cameraControl.getX()) + 32, (position.y - Camera::cameraControl.getY()) - 32), newColor(255, 255, 255), newColor(0, 255, 0), newColor(255, 0, 0), 0, false);
+    //Shape::shape.drawRectangle(position.x - Camera::cameraControl.getX(), (position.y - Camera::cameraControl.getY()), 64, 64, true);
+    Shape::shape.drawRectangle(position.x - Camera::cameraControl.getX(), (position.y - Camera::cameraControl.getY()), 64, 64, newColor(0, 255, 0), newColor(255, 0, 0), newColor(0, 0, 255), newColor(255, 0, 255), true);
+    //Shape::shape.drawCircle(position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY(), 128, true);
+    //Shape::shape.drawCircle(position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY(), 128, newColor(0, 255, 0), newColor(255, 0, 0), newColor(255, 0, 0), true);
 }
 
 void Entity::onAnimate() {

@@ -11,11 +11,11 @@
 unsigned int seed = 0;
 
 Value lengthDirX(Value length, Value dir) {
-    return  cos((dir.real() * M_PI) / 180) *length.real();
+    return  cos((dir.real() * M_PI) / 180.0f) * length.real();
 }
 
 Value lengthDirY(Value length, Value dir) {
-    return sin((dir.real() * M_PI) / 180) * length.real();
+    return sin((dir.real() * M_PI) / 180.0f) * length.real();
 }
 
 Value pointDistance(Value x, Value y, Value x1, Value y1) {

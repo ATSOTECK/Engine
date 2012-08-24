@@ -74,7 +74,7 @@ public:
     void drawTriangle(Vector2f v, Vector2f v1, Vector2f v2, float rot, bool outline);
     
     Shape() {
-        circleAccuracy = 60;
+        circleAccuracy = 20;
         color = BLUE;
     }
     
