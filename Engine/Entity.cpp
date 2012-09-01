@@ -56,6 +56,8 @@ Entity::Entity() {
     animState = 0;
     
     canJump = false;
+    
+    //font.init("res/test.ttf", 16);
 }
 
 Entity::~Entity() {
@@ -81,6 +83,8 @@ bool Entity::onLoad(std::string file, int width, int height, int maxFrames) {
     //texture = Texture::loadTexture(file);
     
     sprite.loadSprite(file);
+    
+    font.init("res/test.ttf", 16);
     
     return true;
 }
@@ -387,6 +391,14 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     Shape::shape.drawRectangle(position.x - Camera::cameraControl.getX(), (position.y - Camera::cameraControl.getY()), 64, 64, newColor(0, 255, 0), newColor(255, 0, 0), newColor(0, 0, 255), newColor(255, 0, 255), true);
     //Shape::shape.drawCircle(position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY(), 128, true);
     //Shape::shape.drawCircle(position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY(), 128, newColor(0, 255, 0), newColor(255, 0, 0), newColor(255, 0, 0), true);
+    
+    glColor3ub(0xff,0,0);
+    
+    glPushMatrix();
+    glLoadIdentity();
+    glTranslatef(-180,0,0);
+    freetype::print(font, 16, 480 - 32, "Text works!\nYAY!");
+    glPopMatrix();
 }
 
 void Entity::onAnimate() {
@@ -411,4 +423,6 @@ void Entity::onCleanup() {
     entitySurface = NULL;
     
     glDeleteTextures(1, &texture);
+    
+    font.cleanup();
 }

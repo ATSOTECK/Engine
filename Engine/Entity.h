@@ -22,6 +22,7 @@
 #include "Vector.h"
 //#include "RealFunctions.h"
 #include "Shape.h"
+#include "TextRender.h"
 
 enum entityType {
     ENTITY_TYPE_GENERIC = 0,
@@ -87,6 +88,8 @@ public:
     
     float maxSpeedX;
     float maxSpeedY;
+    
+    freetype::fontData font;
     
     Entity();
     virtual ~Entity();

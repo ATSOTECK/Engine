@@ -12,24 +12,35 @@
 #include <SDL.h>
 #include "SDL_opengl.h"
 #include <SDL_ttf.h>
-#include <FTGL/ftgl.h>
-#include "Main.h"
+//#include <FTGL/ftgl.h>
+#include <ft2build.h>
+#include <FreeType/freetype.h>
+#include <FreeType/ftglyph.h>
+#include <FreeType/ftoutln.h>
+#include <FreeType/fttrigon.h>
+#include FT_FREETYPE_H
 
-class TextRender {
-public:
-    TextRender();
-    ~TextRender();
+#include <vector>
+#include <string>
+
+#include <stdexcept>
+
+namespace freetype {
+    using std::vector;
+    using std::string;
     
-    bool initText();
-    void renderText(const char *text, float x, float y, float sx, float sy);
-    static void createFont(FTGLPixmapFont *font);
+    struct fontData {
+    public:
+        float h;
+        GLuint *textures;
+        GLuint listBase;
+        
+        void init(const char *fname, unsigned int h);
+        
+        void cleanup();
+    };
     
-    FT_Face face;
-    
-    GLuint program;
-    GLuint attributeCoord;
-    GLuint uniformTex;
-    GLuint uniformColor;
-};
+    void print(const fontData &ft_font, float x, float y, const char *fmt, ...);
+}
 
 #endif

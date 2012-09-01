@@ -22,8 +22,6 @@
 #include "FrameRate.h"
 #include "Texture.h"
 #include "Debug.h"
-#include <ft2build.h>
-#include FT_FREETYPE_H
 //#include "shaderUtils.h"
 //#include "TextRender.h"
 #include <SDL_ttf.h>
