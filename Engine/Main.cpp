@@ -105,6 +105,8 @@ Engine::Engine() {
 	running = true;
     
     videoInfo = NULL;
+    
+    delayTime = initDelay();
 }
 
 int Engine::onExecute(int argc, char *argv[]) {
@@ -120,6 +122,7 @@ int Engine::onExecute(int argc, char *argv[]) {
         
 		onLoop();
 		onRender();
+        delay(delayTime);
 	}
     
 	onCleanup();

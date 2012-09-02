@@ -84,7 +84,7 @@ bool Entity::onLoad(std::string file, int width, int height, int maxFrames) {
     
     sprite.loadSprite(file);
     
-    font.init("res/test.ttf", 12);
+    font.init("res/test.ttf", 16);
     
     return true;
 }
@@ -399,7 +399,7 @@ void Entity::onRender(SDL_Surface *destinationSurface) {
     //glTranslatef(-180,0,0);
     //freetype::print(font, 16, 480 - 32, "Text works!\nYAY!");
     //freetype::print(font, (position.x - Camera::cameraControl.getX()) + 24, (position.y - Camera::cameraControl.getY()), "Hi!");
-    freetype::print(font, position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY(), 180, "X: %.3f Y: %.3f", position.x , position.y);
+    freetype::print(font, position.x - Camera::cameraControl.getX(), position.y - Camera::cameraControl.getY(), 45, "X: %.3f Y: %.3f", position.x , position.y);
     glPopMatrix();
 }
 

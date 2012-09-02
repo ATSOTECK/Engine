@@ -16,6 +16,7 @@
 		D421438815C13341004B2450 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D421438715C13341004B2450 /* SDLMain.m */; };
 		D421438B15C13412004B2450 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D421438515C13303004B2450 /* SDL.framework */; };
 		D421438D15C13468004B2450 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D421438C15C13468004B2450 /* Main.cpp */; };
+		D455CE3C15F4084C003BF953 /* Delay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D455CE3B15F4084C003BF953 /* Delay.cpp */; };
 		D4719FB215C1D18100BF5195 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4719FB115C1D18100BF5195 /* Event.cpp */; };
 		D4719FB515C1D1B300BF5195 /* OnCleanup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4719FB415C1D1B300BF5195 /* OnCleanup.cpp */; };
 		D4719FB715C1D1D400BF5195 /* OnEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4719FB615C1D1D400BF5195 /* OnEvent.cpp */; };
@@ -78,6 +79,7 @@
 		D421438715C13341004B2450 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLMain.m; path = ../../../Downloads/SDLMain.m; sourceTree = "<group>"; };
 		D421438915C1334B004B2450 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLMain.h; path = ../../../Downloads/SDLMain.h; sourceTree = "<group>"; };
 		D421438C15C13468004B2450 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
+		D455CE3B15F4084C003BF953 /* Delay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Delay.cpp; sourceTree = "<group>"; };
 		D4719FAF15C1C51300BF5195 /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
 		D4719FB115C1D18100BF5195 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
 		D4719FB315C1D19300BF5195 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				D4CDB73C15D5E59A00B82BEF /* Vector.h */,
 				D421436F15C13271004B2450 /* Supporting Files */,
 				D4AA6ACE15E278BC004AD766 /* Shape.cpp */,
+				D455CE3B15F4084C003BF953 /* Delay.cpp */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				D49D251815E0559300161F6B /* RealFunctions.cpp in Sources */,
 				D4AE791015E0A4E5006FCCE0 /* Color.cpp in Sources */,
 				D4AA6ACF15E278BD004AD766 /* Shape.cpp in Sources */,
+				D455CE3C15F4084C003BF953 /* Delay.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #ifndef Engine_Main_h
 #define Engine_Main_h
 
-#define FPS 60
+#define FPS 100
 
 #include "SDL.h"
 #include "SDL_opengl.h"
@@ -34,6 +34,8 @@ private:
     int version;
     SDL_Surface *display;
     
+    Uint32 delayTime;
+    
     Entity entity1;
     Entity entity2;
     
@@ -57,6 +59,8 @@ public:
     void onLoop();
     void onRender();
     void onCleanup();
+    void delay(Uint32 delayTime);
+    Uint32 initDelay();
     
     static FT_Library ft;
 };

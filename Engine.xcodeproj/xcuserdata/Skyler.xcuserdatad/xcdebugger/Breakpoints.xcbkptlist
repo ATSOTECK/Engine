@@ -33,19 +33,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Engine/Texture.cpp"
-         timestampString = "366694547.142173"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "180"
-         endingLineNumber = "180"
-         landmarkName = "Texture::onDraw(GLuint texture, int x, int y, int w, int h, int x2, int y2, int w2, int h2)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Engine/Player.cpp"
          timestampString = "366396665.593432"
          startingColumnNumber = "9223372036854775807"

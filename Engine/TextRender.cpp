@@ -41,7 +41,9 @@ namespace freetype {
         
         for (int j = 0; j < height; j++) {
             for (int i = 0; i < width; i++) {
-                expandedData[2 * (i + j * width)] = expandedData[2 * (i + j * width) + 1] = (i >= bitmap.width || j >= bitmap.rows) ? 0 : bitmap.buffer[i + bitmap.width * j];
+                expandedData[2 * (i + j * width)] = 255;
+                expandedData[2 * (i + j * width) + 1] = (i >= bitmap.width || j >= bitmap.rows) ? 0 : bitmap.buffer[i + bitmap.width * j];
+                //expandedData[2 * (i + j * width)] = expandedData[2 * (i + j * width) + 1] = (i >= bitmap.width || j >= bitmap.rows) ? 0 : bitmap.buffer[i + bitmap.width * j];
             }
         }
         
@@ -78,6 +80,8 @@ namespace freetype {
         glTranslatef(face->glyph->advance.x >> 6, 0.0f, 0.0f);
         
         glEndList();
+        
+        FT_Done_Glyph(glyph);
     }
     
     void fontData::init(const char *fname, unsigned int h) {

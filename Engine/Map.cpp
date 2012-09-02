@@ -40,7 +40,7 @@ bool Map::onLoad(char *file) {
 
 void Map::onRender(int mapx, int mapy) {
     int ID = 0;
-    
+    //inneficiant, work on map rendering
     for (int y = 0; y < MAP_HEIGHT; y++) {
         for (int x = 0; x < MAP_WIDTH; x++) {
             if (tileList[ID].typeID == TILE_TYPE_NONE) {
