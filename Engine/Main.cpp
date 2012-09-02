@@ -99,9 +99,6 @@ void Debug::error(const Debug::Source source, const Debug::Level level, const ch
 
 Engine::Engine() {
     display = NULL;
-	testSurface = NULL;
-	tileSurface = NULL;
-    yoshiSurface = NULL;
     
 	version = 0;
     

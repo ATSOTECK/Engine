@@ -9,6 +9,8 @@
 #ifndef Engine_Main_h
 #define Engine_Main_h
 
+#define FPS 60
+
 #include "SDL.h"
 #include "SDL_opengl.h"
 #include "Surface.h"
@@ -31,10 +33,6 @@ private:
     bool running;
     int version;
     SDL_Surface *display;
-    SDL_Surface *testSurface;
-    SDL_Surface *tileSurface;
-    SDL_Surface *yoshiSurface;
-    //Animation yoshi;
     
     Entity entity1;
     Entity entity2;

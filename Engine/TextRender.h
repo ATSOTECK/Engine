@@ -40,7 +40,7 @@ namespace freetype {
         void cleanup();
     };
     
-    void print(const fontData &ft_font, float x, float y, const char *fmt, ...);
+    void print(const fontData &ft_font, float x, float y, float angle, const char *fmt, ...);
 }
 
 #endif
