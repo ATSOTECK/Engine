@@ -27,6 +27,9 @@ bool Map::onLoad(char *file) {
         for (int x = 0; x < MAP_WIDTH; x++) {
             Tile tempTile;
             
+            mapCoordsX[x] = x;
+            mapCoordsY[y] = y;
+            
             fscanf(fileHandle, "%d:%d", &tempTile.tileID, &tempTile.typeID);
             
             tileList.push_back(tempTile);
@@ -34,6 +37,8 @@ bool Map::onLoad(char *file) {
         fscanf(fileHandle, "\n");
     }
     fclose(fileHandle);
+    
+    
     
     return true;
 }

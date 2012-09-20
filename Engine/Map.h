@@ -21,6 +21,8 @@
 class Map {
 private:
     std::vector<Tile> tileList;
+    double mapCoordsX[1024];
+    double mapCoordsY[1024];
     
 public:
     GLuint texture;

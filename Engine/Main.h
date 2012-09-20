@@ -27,6 +27,7 @@
 //#include "shaderUtils.h"
 //#include "TextRender.h"
 #include <SDL_ttf.h>
+#include <Box2D.h>
 
 class Engine : public Event{
 private:
